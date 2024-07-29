@@ -5,12 +5,13 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace Linked_List
 {
     public class LinkedList
     {
-        public Node? Head {  get; set; }
+         public Node? Head {  get; set; }
 
+        // INSERT
         public void InsertHead(int data)
         {
             //Create the node
@@ -23,6 +24,7 @@ namespace LinkedList
             Head = newNode;
         }
 
+        // DELETE
         public Node DeleteHead()
         {
             // Assign the temporary variable
@@ -32,25 +34,27 @@ namespace LinkedList
             return temp;
         }
 
+        // ITERATE
         public void DisplayList()
         {
             Console.WriteLine("Iterating through list...");
             Node current = Head;
             while (current != null)
             {
-                current.WriteLine(Data);
+                current.DisplayNode();
                 current = current.Next; // Iterating
             }
+        }
 
         public void InsertLast(int data)
         {
             Node current = Head;
             while(current.Next  != null)
             {
-                current = current.Next;
+                current = current.Next; // Iteration
             }
             Node newNode = new Node();
-            newNode.Data = data;
+            newNode.Data = data;        // Populate new data
             current.Next = newNode;
         }
     }
